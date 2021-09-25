@@ -1,0 +1,8 @@
+<h2>Our team:</h2>
+<% @team_members.each do |team_member| %>
+  <div>
+    <h4><%= team_member.name %></h4>
+    <h6><%= team_member.position %></h6>
+    <p><%= team_member.info %></p>
+  </div>
+<% end %>
