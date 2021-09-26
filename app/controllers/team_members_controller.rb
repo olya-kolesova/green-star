@@ -1,5 +1,6 @@
-class TeamMemberController < ApplicationController
+class TeamMembersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
+
   def index
     @team_members = TeamMember.all
   end
@@ -26,4 +27,5 @@ class TeamMemberController < ApplicationController
     params.require(:team_member).permit[:first_name, :last_name, :position, :info]
   end
 
+end
 end
