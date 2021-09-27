@@ -10,6 +10,7 @@ class TradesController < ApplicationController
       redirect_to trades_path
     else
       render "index"
+    end
   end
 
   def destroy

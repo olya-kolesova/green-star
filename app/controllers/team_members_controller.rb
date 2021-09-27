@@ -11,6 +11,7 @@ class TeamMembersController < ApplicationController
       redirect_to team_members_path
     else
       render "index"
+    end
   end
 
   def update
@@ -27,5 +28,4 @@ class TeamMembersController < ApplicationController
     params.require(:team_member).permit[:first_name, :last_name, :position, :info]
   end
 
-end
 end

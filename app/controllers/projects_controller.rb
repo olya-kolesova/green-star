@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   def index
-    @project = Project.all
+    @projects = Project.all
   end
 
   def create
@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
       redirect_to projects_path
     else
       render "index"
+    end
   end
 
   def update
