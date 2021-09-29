@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
 
 puts "Destroying seeds."
 
@@ -21,9 +22,21 @@ user3 = User.create(email: "dora@gmail.com", password: "19091987Charles")
 
 puts "Creating Team members."
 
-TeamMember.create(user: user1, first_name: "Charles", last_name: "Swallow", position: "Director", info: "Charles worked for almost 10 years as a consultant in a couple of Cambridge agencies before starting Green Star Recruitment. His passions outside of work include travel to new and intersting locations all over the world and experiencing new cultures and ways of life.")
-TeamMember.create(user: user2, first_name: "Milo", last_name: "Cesaro", position: "Trades and Labour Consultant", info: "Milo has a wealth of experience in a number of industries and has recently joined Green Star as a consultant. When he is not checking references, passports and CSCS cards he is mesmerising revellers from behind the decks with a variety of old school garage, techno and drum & bass (strictly vinyl).")
-TeamMember.create(user: user3, first_name: "Dora", last_name: "Swallow", position: "Psychologist", info: "Dora's position revolves around keeping the team focused on their targets and ensuring people live to their full potential. When not studying or in session she enjoys chewing cardboard boxes")
+team_member1 = TeamMember.create(user: user1, first_name: "Charles", last_name: "Swallow", position: "Director", info: "Charles worked for almost 10 years as a consultant in a couple of Cambridge agencies before starting Green Star Recruitment. His passions outside of work include travel to new and intersting locations all over the world and experiencing new cultures and ways of life.")
+team_member2 = TeamMember.create(user: user2, first_name: "Milo", last_name: "Cesaro", position: "Trades and Labour Consultant", info: "Milo has a wealth of experience in a number of industries and has recently joined Green Star as a consultant. When he is not checking references, passports and CSCS cards he is mesmerising revellers from behind the decks with a variety of old school garage, techno and drum & bass (strictly vinyl).")
+team_member3 = TeamMember.create(user: user3, first_name: "Dora", last_name: "Swallow", position: "Psychologist", info: "Dora's position revolves around keeping the team focused on their targets and ensuring people live to their full potential. When not studying or in session she enjoys chewing cardboard boxes")
+
+def attach_photo(model, file, filename, content)
+  model.photo.attach(io: file, filename: filename, content_type: content)
+end
+
+file1 = URI.open('https://res.cloudinary.com/green-star/image/upload/v1632933481/Green%20Star/Team_members/Charles_pgz5fi.jpg')
+file2 = URI.open('https://res.cloudinary.com/green-star/image/upload/v1632933482/Green%20Star/Team_members/Milo_smmzbf.jpg')
+file3 = URI.open('https://res.cloudinary.com/green-star/image/upload/v1632933482/Green%20Star/Team_members/Dora_uh1xd2.jpg')
+
+attach_photo(team_member1, file1, "Charles", "image/jpg")
+attach_photo(team_member2, file2, "Milo", "image/jpg")
+attach_photo(team_member3, file3, "Dora", "image/jpg")
 
 puts "Creating Projects."
 

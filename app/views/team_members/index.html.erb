@@ -1,8 +1,14 @@
 <h2>Our team:</h2>
-<% @team_members.each do |team_member| %>
-  <div>
-    <h4><%= team_member.first_name %><%= team_member.last_name %></h4>
-    <h6><%= team_member.position %></h6>
-    <p><%= team_member.info %></p>
-  </div>
-<% end %>
+<div class="grid-team">
+
+  <% @team_members.each do |team_member| %>
+    <div class="card-team">
+      <%= cl_image_tag team_member.photo.key, height: 600, width: 400, crop: :fill %>
+      <h4><%= team_member.first_name %> <%= team_member.last_name %></h4>
+      <h6><%= team_member.position %></h6>
+      <p><%= team_member.info %></p>
+    </div>
+  <% end %>
+
+
+</div>
