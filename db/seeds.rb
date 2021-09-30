@@ -40,12 +40,26 @@ attach_photo(team_member3, file3, "Dora", "image/jpg")
 
 puts "Creating Projects."
 
-Project.create(name: "AstraZeneca Project Laureate", location: "Cambridge", description: "Cambridge is one of the most exciting bioscience hotspots in the world. It is home to one of AstraZeneca’s three global R&D Centres, alongside Gothenburg and Gaithersburg, and plays a central role in our mission to deliver life-changing medicines to patients." )
-Project.create(name: "Battersea Power Station", location: "Battersea, London", description: "Battersea Power Station, which was fully decommissioned in 1983, and given Grade II* building status, is being redeveloped as part of a seven-phased, £8bn ($13.36bn)-worth redevelopment project.")
-Project.create(name: "DAMAC Tower", location: "Vauxhall, London", description: "Rising 50 storeys tall, DAMAC Tower Nine Elms is a statuesque addition to London’s South Bank skyline.")
-Project.create(name: "Menai Suspension Bridge", location: "Anglesey, Wales", description: "Renovation project on Menai Suspension Bridge. Designed by Thomas Telford and completed in 1826, it was the world's first major suspension bridge.")
-Project.create(name: "DP World London Gateway", location: "Stanford-le-Hope", description: "Port within the wider Port of London, United Kingdom. Opened in November 2013, the site is a fully integrated logistics facility, comprising a semi-automated, deep-sea container terminal on the same site as the UK's largest land bank for development of warehousing, distribution facilities and ancillary logistics services.")
-Project.create(name: "Cambridge Railway Station", location: "Cambridge", description: "Cambridge railway station is the principal station serving the city of Cambridge in the east of England. Three new tracks were installed at the existing station.")
+project1 = Project.create(name: "AstraZeneca Project Laureate", location: "Cambridge", description: "Cambridge is one of the most exciting bioscience hotspots in the world. It is home to one of AstraZeneca’s three global R&D Centres, alongside Gothenburg and Gaithersburg, and plays a central role in our mission to deliver life-changing medicines to patients." )
+project2 = Project.create(name: "Battersea Power Station", location: "Battersea, London", description: "Battersea Power Station, which was fully decommissioned in 1983, and given Grade II* building status, is being redeveloped as part of a seven-phased, £8bn ($13.36bn)-worth redevelopment project.")
+project3 = Project.create(name: "DAMAC Tower", location: "Vauxhall, London", description: "Rising 50 storeys tall, DAMAC Tower Nine Elms is a statuesque addition to London’s South Bank skyline.")
+project4 = Project.create(name: "Menai Suspension Bridge", location: "Anglesey, Wales", description: "Renovation project on Menai Suspension Bridge. Designed by Thomas Telford and completed in 1826, it was the world's first major suspension bridge.")
+project5 = Project.create(name: "DP World London Gateway", location: "Stanford-le-Hope", description: "Port within the wider Port of London, United Kingdom. Opened in November 2013, the site is a fully integrated logistics facility, comprising a semi-automated, deep-sea container terminal on the same site as the UK's largest land bank for development of warehousing, distribution facilities and ancillary logistics services.")
+project6 = Project.create(name: "Cambridge Railway Station", location: "Cambridge", description: "Cambridge railway station is the principal station serving the city of Cambridge in the east of England. Three new tracks were installed at the existing station.")
+
+file4 = URI.open('https://res.cloudinary.com/green-star/image/upload/v1632933527/Green%20Star/Projects/AZ_project_Laureate_yejua2.jpg')
+file5 = URI.open('https://res.cloudinary.com/green-star/image/upload/v1632934166/Green%20Star/Projects/BatterSea_Power_Station_bvvemt.jpg')
+file6 = URI.open('https://res.cloudinary.com/green-star/image/upload/v1632933526/Green%20Star/Projects/DAMAC-Tower-Nine-hero-image-mobile_vn5i7a.jpg')
+file7 = URI.open('https://res.cloudinary.com/green-star/image/upload/v1632933527/Green%20Star/Projects/Menai_Bridge_Wales_Anglesey_r6fgpp.jpg')
+file8 = URI.open('https://res.cloudinary.com/green-star/image/upload/v1632933527/Green%20Star/Projects/DP_World_London_Gateway_yn2uyh.jpg')
+file9 = URI.open('https://res.cloudinary.com/green-star/image/upload/v1632933529/Green%20Star/Projects/Cambridge_Railway_Station_rklety.jpg')
+
+attach_photo(project1, file4, "AstraZeneca", "image/jpg")
+attach_photo(project2, file5, "Battersea Station", "image/jpg")
+attach_photo(project3, file6, "DAMAC Tower", "image/jpg")
+attach_photo(project4, file7, "Menai Suspension Bridge", "image/jpg")
+attach_photo(project5, file8, "DP World London Gateway", "image/jpg")
+attach_photo(project6, file9, "Cambridge Railway Station", "image/jpg")
 
 puts "Creating Trades."
 
