@@ -1,8 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= image_tag "Green Star Rec Logo.jpg", alt: "logo", width: 80 %>
-    <%= link_to root_path do %>
-      <%= fa_icon("fa-home") %>
-    <% end %>
+    <i><%= link_to "", root_path, class: "fas fa-home" %></i>
     <%= link_to "Projects", projects_path, class: "link-navbar" %>
     <%= link_to "Trades", trades_path, class: "link-navbar" %>
     <%= link_to "Our team", team_members_path, class: "link-navbar" %>
