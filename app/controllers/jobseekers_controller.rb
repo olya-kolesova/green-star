@@ -3,12 +3,22 @@ class JobseekersController < ApplicationController
     @jobseeker = Jobseeker.all
   end
 
-  def create
-    @jobseeker = Project.new(project_params)
-    if @jobseeker.save
-      redirect_to jobseekers_path
+  def new
+    if current_user.jobseeker.present?
+      @jobseeker = Jobseeker.new(jobseeker_params)
     else
-      render "index"
+      @jobseeker = Jobseeker.new
+    end
+  end
+
+  def create
+    @jobseeker = Jobseeker.new(jobseeker_params)
+    @jobseeker.user = current_user
+    if @jobseeker.save
+      redirect_to new_jobseeker_path
+    else
+      render "jobseekers/new"
+    end
   end
 
   def update
@@ -22,6 +32,6 @@ class JobseekersController < ApplicationController
   end
 
   def jobseeker_params
-    params.require(:jobseeker).permit[:first_name, :last_name, :address_line1, :address_line2, :post_code, :phone_number, :email, :trade, :qualifications, :references, :enquiry]
+    params.require(:jobseeker).permit(:first_name, :last_name, :address_line1, :address_line2, :post_code, :phone_number, :email, :trade, :qualifications, :references, :enquiry)
   end
 end
