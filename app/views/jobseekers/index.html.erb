@@ -1,11 +1,11 @@
 <h2>Joobseekers</h2>
-<% @joobseekers.each do |joobseeker| %>
+<% @jobseekers.each do |joobseeker| %>
   <div>
     <h4><%= joobseeker.first_name %> <%= joobseeker.last_name %></h4>
     <h6><%= joobseeker.phone_number %><%= joobseeker.email %></h6>
     <h6><%= joobseeker.address_line1 %><%= joobseeker.address_line2 %><%= joobseeker.post_code %></h6>
     <h6><%= joobseeker.trade %><%= joobseeker.qualifications %></h6>
     <h6><%= joobseeker.references %></h6>
-    <h6><%= joobseeker.equiry %></h6>
+    <h6><%= joobseeker.enquiry %></h6>
   </div>
 <% end %>

@@ -1,14 +1,16 @@
-<%= simple_form_for [@jobseeker] do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :address_line1 %>
-  <%= f.input :address_line2 %>
-  <%= f.input :post_code %>
-  <%= f.input :phone_number %>
-  <%= f.input :email %>
-  <%= f.input :trade %>
-  <%= f.input :qualifications %>
-  <%= f.input :references %>
-  <%= f.input :enquiry %>
-  <%= f.submit "Submit", class: "btn-success" %>
+<% if policy(@jobseeker).edit? %>
+  <%= simple_form_for [@jobseeker] do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :address_line1 %>
+    <%= f.input :address_line2 %>
+    <%= f.input :post_code %>
+    <%= f.input :phone_number %>
+    <%= f.input :email %>
+    <%= f.input :trade %>
+    <%= f.input :qualifications %>
+    <%= f.input :references %>
+    <%= f.input :enquiry %>
+    <%= f.submit "Submit", class: "btn-success" %>
+  <% end %>
 <% end %>

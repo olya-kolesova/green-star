@@ -25,7 +25,7 @@ class TeamMembersController < ApplicationController
   end
 
   def team_member_params
-    params.require(:team_member).permit[:first_name, :last_name, :position, :info]
+    params.require(:team_member).permit[:first_name, :last_name, :position, :info, :user_id]
   end
 
 end

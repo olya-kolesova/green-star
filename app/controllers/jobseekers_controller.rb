@@ -1,14 +1,17 @@
 class JobseekersController < ApplicationController
   def index
-    @jobseeker = Jobseeker.all
+    # @jobseekers = policy_scope(Jobseeker).order(created_at: :desc)
+    @jobseekers = Jobseeker.all
   end
 
   def new
-    if current_user.jobseeker.present?
-      @jobseeker = Jobseeker.new(jobseeker_params)
+    @user = current_user
+    if @user.jobseeker.present?
+      @jobseeker = Jobseeker.find(@user.jobseeker.id)
     else
       @jobseeker = Jobseeker.new
     end
+    authorize @jobseeker
   end
 
   def create
@@ -22,12 +25,18 @@ class JobseekersController < ApplicationController
   end
 
   def update
-    @jobseeker = jobseeker.find(params[:id])
-    @jobseeker.update(jobseeker_params)
+    @user = current_user
+    @jobseeker = Jobseeker.find(@user.jobseeker.id)
+    authorize @jobseeker
+    if @jobseeker.update(jobseeker_params)
+      redirect_to new_jobseeker_path
+    else
+      render "jobseekers/new"
+    end
   end
 
   def destroy
-    @jobseeker = jobseeker.find(params[:id])
+    @jobseeker = Jobseeker.find(params[:id])
     @jobseeker.destroy
   end
 
