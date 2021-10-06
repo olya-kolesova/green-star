@@ -1,7 +1,6 @@
 class JobseekersController < ApplicationController
   def index
-    # @jobseekers = policy_scope(Jobseeker).order(created_at: :desc)
-    @jobseekers = Jobseeker.all
+    @jobseekers = policy_scope(Jobseeker).order(created_at: :desc)
   end
 
   def new

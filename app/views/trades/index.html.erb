@@ -2,5 +2,16 @@
 <% @trades.each do |trade| %>
   <div>
     <h4><%= trade.name %></h4>
+    <% if policy(Project).destroy? %>
+      <%= link_to "Delete", trade_path(trade), method: :delete %>
+    <% end %>
+  </div>
+<% end %>
+<% if policy(Trade).create? %>
+  <div>
+    <%= simple_form_for [@trade] do |f| %>
+      <%= f.input :name %>
+      <%= f.submit "Submit", class: "btn-success" %>
+    <% end %>
   </div>
 <% end %>

@@ -1,20 +1,20 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= image_tag "Green Star Rec Logo.jpg", alt: "logo", width: 80 %>
-    <i><%= link_to "", root_path, class: "fas fa-home" %></i>
-    <%= link_to "Projects", projects_path, class: "link-navbar" %>
-    <%= link_to "Trades", trades_path, class: "link-navbar" %>
-    <%= link_to "Our team", team_members_path, class: "link-navbar" %>
-    <% if policy(Jobseeker).create? %>
-      <%= link_to "For Jobseekers", new_jobseeker_path, class: "link-navbar" %>
+  <i><%= link_to "", root_path, class: "fas fa-home" %></i>
+  <%= link_to "Projects", projects_path, class: "link-navbar" %>
+  <%= link_to "Trades", trades_path, class: "link-navbar" %>
+  <%= link_to "Our team", team_members_path, class: "link-navbar" %>
+  <% if policy(Jobseeker).create? %>
+    <%= link_to "For Jobseekers", new_jobseeker_path, class: "link-navbar" %>
+  <% end %>
+  <% if current_user.present? %>
+    <% if current_user.email == "charles@greenstarrecruitment.co.uk" || current_user.email == "milo@greenstarrecruitment.co.uk" %>
+      <%= link_to "Jobseekers", jobseekers_path %>
     <% end %>
-    <% if current_user.present? %>
-      <% if current_user.email == "charles@greenstarrecruitment.co.uk" || current_user.email == "milo@greenstarrecruitment.co.uk" %>
-        <%= link_to "Jobseekers", jobseekers_path %>
-      <% end %>
-    <% end %>
-    <% if user_signed_in? %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-    <% end %>
+  <% end %>
+  <% if user_signed_in? %>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+  <% end %>
 </div>

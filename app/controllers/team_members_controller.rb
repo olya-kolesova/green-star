@@ -2,7 +2,8 @@ class TeamMembersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @team_members = TeamMember.all
+    @team_members = policy_scope(TeamMember).order(created_at: :desc)
+    @team_member = TeamMember.new
   end
 
   def create
@@ -25,7 +26,7 @@ class TeamMembersController < ApplicationController
   end
 
   def team_member_params
-    params.require(:team_member).permit[:first_name, :last_name, :position, :info, :user_id]
+    params.require(:team_member).permit(:first_name, :last_name, :position, :info, :user_id, :photo)
   end
 
 end

@@ -4,11 +4,32 @@
 <div class="grid-project">
   <% @projects.each do |project| %>
     <div class="card-project">
-      <%= cl_image_tag project.photo.key, height: 400, width: 600, crop: :fill %>
+      <%if project.photo.present? %>
+        <%= cl_image_tag project.photo.key, height: 400, width: 600, crop: :fill %>
+      <% end %>
       <h4><%= project.name %></h4>
       <h6><%= project.location %></h6>
       <p><%= project.description %></p>
+      <% if policy(Project).update? %>
+        <%= link_to "Edit", edit_project_path(project) %>
+      <% end %>
+
+      <% if policy(Project).destroy? %>
+        <%= link_to "Delete", project_path(project), method: :delete %>
+      <% end %>
+
     </div>
   <% end %>
 
 </div>
+<% if policy(Project).create? %>
+  <div>
+    <%= simple_form_for [@project] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :location %>
+      <%= f.input :description %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Submit", class: "btn-success" %>
+    <% end %>
+  </div>
+<% end %>

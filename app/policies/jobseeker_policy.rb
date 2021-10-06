@@ -1,12 +1,10 @@
 class JobseekerPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope
+      if user.admin?
+        scope.all
+      end
     end
-  end
-
-  def index?
-    user.email == "charles@greenstarrecruitment.co.uk"
   end
 
   def create?
@@ -20,7 +18,7 @@ class JobseekerPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    user.email == "charles@greenstarrecruitment.co.uk"
   end
 
 end
