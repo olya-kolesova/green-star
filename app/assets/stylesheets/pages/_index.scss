@@ -7,17 +7,18 @@
 @import "projects";
 
 html {
-  position: relative;
   min-height: 100%;
+  position: relative;
 }
 
 body {
-  margin: 0 0 100px;
+  margin: 0 0 80px;
 }
 
-footer {
+#footer {
+  position: absolute;
   left: 0;
   bottom: 0;
-  height: 100px;
+  height: 80px;
   width: 100%;
 }
