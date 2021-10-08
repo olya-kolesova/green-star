@@ -23,13 +23,21 @@
 
 </div>
 <% if policy(Project).create? %>
-  <div>
+  <div class="form-green-star">
+    <h3>Project form</h3>
+    <hr/>
     <%= simple_form_for [@project] do |f| %>
       <%= f.input :name %>
+      <hr/>
       <%= f.input :location %>
+      <hr/>
       <%= f.input :description %>
+      <hr/>
       <%= f.input :photo, as: :file %>
+      <hr/>
       <%= f.submit "Submit", class: "btn-success" %>
     <% end %>
   </div>
 <% end %>
+<br>
+<br>
