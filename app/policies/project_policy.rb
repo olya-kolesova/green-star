@@ -16,5 +16,4 @@ class ProjectPolicy < ApplicationPolicy
   def destroy?
     user.email == "charles@greenstarrecruitment.co.uk" || user.email == "milo@greenstarrecruitment.co.uk"
   end
-
 end

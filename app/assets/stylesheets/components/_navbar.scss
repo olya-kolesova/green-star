@@ -10,3 +10,21 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-lewagon a {
+  color: #283739;
+  font-weight: 600;
+  font-size: 20px;
+  font-weight: 600;
+  // font-family: "Work Sans", "Helvetica", "sans-serif";
+}
+
+.link-navbar {
+  font-family: "Work Sans", "Helvetica", "sans-serif";
+}
+
+.navbar-lewagon a:hover {
+  color: #228896;
+  text-decoration: none;
+  transition-delay: 0.24s;
+}
