@@ -1,17 +1,34 @@
 <h2>What we do:</h2>
-<% @trades.each do |trade| %>
-  <div>
-    <h4><%= trade.name %></h4>
-    <% if policy(Project).destroy? %>
-      <%= link_to "Delete", trade_path(trade), method: :delete %>
-    <% end %>
-  </div>
-<% end %>
+<div class="col-trades">
+  <% @trades.each do |trade| %>
+    <div>
+      <h4><%= trade.name %></h4>
+      <% if policy(Project).destroy? %>
+        <%= link_to "Delete", trade_path(trade), method: :delete %>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>
+<div class="col-trades-photos">
+  <%= image_tag "Bricklayer.png", alt: "Bricklayer", width: 200 %>
+  <%= image_tag "Dryliners.jpg", alt: "Dryliners", width: 200 %>
+  <%= image_tag "Groundworkers.jpg", alt: "Groundworkers", width: 200 %>
+  <%= image_tag "Plasteres.jpg", alt: "Plasteres", width: 200 %>
+  <%= image_tag "telescopic-forklift.jpg", alt: "telescopic-forklift", width: 200 %>
+</div>
+
+
 <% if policy(Trade).create? %>
-  <div>
+  <div class="form-green-star">
+    <h3>Trade form</h3>
+    <hr/>
     <%= simple_form_for [@trade] do |f| %>
       <%= f.input :name %>
-      <%= f.submit "Submit", class: "btn-success" %>
+      <hr/>
+      <%= f.submit "Submit", class: "btn-green-star" %>
     <% end %>
   </div>
 <% end %>
+<br>
+<br>

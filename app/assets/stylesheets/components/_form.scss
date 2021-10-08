@@ -10,10 +10,26 @@
 }
 
 hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #228896;
-    margin: 1em 0;
-    padding: 0;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #228896;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.form-green-star h3 {
+  font-family: "Work Sans", "Helvetica", "sans-serif";
+  font-size: 24px;
+  font-weight: 600;
+  color: #228896;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #228896;
+  outline: 0;
+  // box-shadow: 0 0 0 0.2rem rgb(41 187 188 / 25%);
+  box-shadow: 0 0 0 0.2rem rgba(41, 187, 188, 0.25);
 }
