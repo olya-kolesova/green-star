@@ -1,21 +1,41 @@
-<h2>What we do:</h2>
-<div class="col-trades">
-  <% @trades.each do |trade| %>
-    <div>
-      <h4><%= trade.name %></h4>
-      <% if policy(Project).destroy? %>
-        <%= link_to "Delete", trade_path(trade), method: :delete %>
-      <% end %>
-    </div>
-  <% end %>
+<div class="container-trades">
+  <div class="col-trades">
+    <h2>We supply:</h2>
+    <% @trades.each do |trade| %>
+      <div class="name-trades">
+        <h3><%= trade.name %></h3>
+        <% if policy(Project).destroy? %>
+          <div class="name-trades">
+            <%= link_to trade_path(trade), method: :delete do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
-</div>
-<div class="col-trades-photos">
-  <%= image_tag "Bricklayer.png", alt: "Bricklayer", width: 200 %>
-  <%= image_tag "Dryliners.jpg", alt: "Dryliners", width: 200 %>
-  <%= image_tag "Groundworkers.jpg", alt: "Groundworkers", width: 200 %>
-  <%= image_tag "Plasteres.jpg", alt: "Plasteres", width: 200 %>
-  <%= image_tag "telescopic-forklift.jpg", alt: "telescopic-forklift", width: 200 %>
+  </div>
+  <div class="col-trades-photos">
+    <div class="fraction-trades">
+      <%= image_tag "Bricklayer.png", alt: "Bricklayer", width: 510 %>
+    </div>
+    <div class="fraction-trades">
+      <%= image_tag "Dryliners.jpg", alt: "Dryliners", width: 400 %>
+    </div>
+    <div class="fraction-trades">
+      <%= image_tag "Groundworkers.jpg", alt: "Groundworkers", width: 510 %>
+    </div>
+    <div class="fraction-trades">
+      <%= image_tag "Plasteres.jpg", alt: "Plasteres", width: 400 %>
+    </div>
+    <div class="fraction-trades">
+      <%= image_tag "telescopic-forklift.jpg", alt: "telescopic-forklift", width: 450 %>
+    </div>
+    <div class="fraction-trades">
+      <%= image_tag "Labourer.jpg", alt: "Labourer", width: 400 %>
+    </div>
+  </div>
+
 </div>
 
 

@@ -1,0 +1,50 @@
+.container-trades {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 104px auto;
+}
+
+.col-trades {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.col-trades h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 56px;
+  margin-bottom: 32px;
+}
+
+.col-trades h3 {
+  font-family: "Work Sans", "Helvetica", "sans-serif"
+}
+
+.col-trades-photos {
+  display: grid;
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+  grid-template-columns: 1fr 1fr;
+}
+
+.fraction-trades {
+  display: flex;
+  height: 300px;
+  width: 400px;
+}
+
+.name-trades {
+  display: flex;
+  // justify-content: space-evenly;
+}
+
+.fa-trash-alt {
+  font-size: 32px;
+  color: #228896;
+  margin-left: 16px;
+}
+
+.fa-trash-alt:hover {
+  color: #283739;
+  transition-duration: 0.40s;
+}
