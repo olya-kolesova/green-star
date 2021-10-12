@@ -5,7 +5,9 @@
       <div class="name-trades">
         <h3><%= trade.name %></h3>
         <% if policy(Project).destroy? %>
-            <i class="far fa-trash-alt"><%= link_to "", trade_path(trade), method: :delete %></i>
+            <%= link_to trade_path(trade), method: :delete do%>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
         <% end %>
       </div>
     <% end %>

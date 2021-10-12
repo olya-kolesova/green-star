@@ -1,11 +1,46 @@
-<h2>Joobseekers</h2>
-<% @jobseekers.each do |joobseeker| %>
-  <div>
-    <h4><%= joobseeker.first_name %> <%= joobseeker.last_name %></h4>
-    <h6><%= joobseeker.phone_number %><%= joobseeker.email %></h6>
-    <h6><%= joobseeker.address_line1 %><%= joobseeker.address_line2 %><%= joobseeker.post_code %></h6>
-    <h6><%= joobseeker.trade %><%= joobseeker.qualifications %></h6>
-    <h6><%= joobseeker.references %></h6>
-    <h6><%= joobseeker.enquiry %></h6>
-  </div>
-<% end %>
+<h2 class="text-heading">Green star jobseekers</h2>
+
+<div class="search-bar">
+  <%= form_tag jobseekers_path, method: :get do %>
+    <div class="input-field-jobseekers">
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a jobseeker"
+      %>
+    </div>
+    <%= submit_tag "Search", class: "btn btn-green-star btn-search" %>
+  <% end %>
+
+</div>
+
+<table>
+  <tr>
+    <th>Full name</th>
+    <th>Phone number</th>
+    <th>Email</th>
+    <th>Address line 1</th>
+    <th>Address line 2</th>
+    <th>Address line 3</th>
+    <th>Postcode</th>
+    <th>Trade</th>
+    <th>Qualifications</th>
+    <th>References</th>
+    <th>Enquiry</th>
+  </tr>
+  <% @jobseekers.each do |joobseeker| %>
+    <tr>
+      <td><%= joobseeker.first_name %> <%= joobseeker.last_name %></td>
+      <td><%= joobseeker.phone_number %></td>
+      <td><%= joobseeker.email %></td>
+      <td><%= joobseeker.address_line1 %></td>
+      <td><%= joobseeker.address_line2 %></td>
+      <td><%= joobseeker.address_line3 %></td>
+      <td><%= joobseeker.post_code %></td>
+      <td><%= joobseeker.trade %></td>
+      <td><%= joobseeker.qualifications %></td>
+      <td><%= joobseeker.references %></td>
+      <td><%= joobseeker.enquiry %></td>
+    </tr>
+  <% end %>
+</table>

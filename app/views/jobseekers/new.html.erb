@@ -1,9 +1,10 @@
-<% if policy(@jobseeker).edit? %>
+<% if policy(@jobseeker).create? %>
   <%= simple_form_for [@jobseeker] do |f| %>
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <%= f.input :address_line1 %>
     <%= f.input :address_line2 %>
+    <%= f.input :address_line3 %>
     <%= f.input :post_code %>
     <%= f.input :phone_number %>
     <%= f.input :email %>

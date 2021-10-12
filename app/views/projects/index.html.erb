@@ -9,17 +9,19 @@
       <% end %>
       <div class="icons-projects">
         <% if policy(Project).destroy? %>
-          <i class="far fa-trash-alt"><%= link_to "", project_path(project), method: :delete %></i>
+          <%= link_to project_path(project), method: :delete do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
         <% end %>
         <% if policy(Project).update? %>
-          <i class="far fa-edit"><%= link_to "", edit_project_path(project) %></i>
+          <%= link_to edit_project_path(project) do %>
+            <i class="far fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <h4><%= project.name %></h4>
       <h6><%= project.location %></h6>
       <p><%= project.description %></p>
-
-
     </div>
   <% end %>
 

@@ -30,12 +30,20 @@
   margin: 16px auto;
   width: 80%;
   box-shadow: 0px 0px 24px grey;
+  position: relative;
 }
 
 .card-project img {
   margin-bottom: 16px;
   width: 100%;
   height: 320px;
+}
+
+
+.icons-projects {
+  position: absolute;
+  right: 4%;
+  top: 4%;
 }
 
 .card-project h4 {
@@ -61,5 +69,11 @@
 
 .fa-edit {
   font-size: 24px;
+  color: #070909;
+}
+
+
+.fa-edit:hover {
   color: #228896;
+  transition-duration: 0.40s;
 }
