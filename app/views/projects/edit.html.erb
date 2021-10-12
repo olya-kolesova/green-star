@@ -1,9 +1,15 @@
-  <div class="container">
+  <div class="form-green-star">
+    <h3>Edit project form</h3>
+    <hr/>
     <%= simple_form_for [@project] do |f| %>
       <%= f.input :name %>
+      <hr/>
       <%= f.input :location %>
+      <hr/>
       <%= f.input :description %>
+      <hr/>
       <%= f.input :photo, as: :file %>
-      <%= f.submit "Edit", class: "btn-success" %>
+      <hr/>
+      <%= f.submit "Edit", class: "btn-green-star" %>
     <% end %>
   </div>

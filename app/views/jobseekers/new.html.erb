@@ -1,17 +1,35 @@
 <% if policy(@jobseeker).create? %>
-  <%= simple_form_for [@jobseeker] do |f| %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :address_line1 %>
-    <%= f.input :address_line2 %>
-    <%= f.input :address_line3 %>
-    <%= f.input :post_code %>
-    <%= f.input :phone_number %>
-    <%= f.input :email %>
-    <%= f.input :trade %>
-    <%= f.input :qualifications %>
-    <%= f.input :references %>
-    <%= f.input :enquiry %>
-    <%= f.submit "Submit", class: "btn-success" %>
-  <% end %>
+  <div class="form-green-star">
+    <h3>Jobseeker form</h3>
+    <hr/>
+    <%= simple_form_for [@jobseeker] do |f| %>
+      <%= f.input :first_name %>
+      <hr/>
+      <%= f.input :last_name %>
+      <hr/>
+      <%= f.input :address_line1 %>
+      <hr/>
+      <%= f.input :address_line2 %>
+      <hr/>
+      <%= f.input :address_line3 %>
+      <hr/>
+      <%= f.input :post_code %>
+      <hr/>
+      <%= f.input :phone_number %>
+      <hr/>
+      <%= f.input :email %>
+      <hr/>
+      <%= f.input :trade %>
+      <hr/>
+      <%= f.input :qualifications %>
+      <hr/>
+      <%= f.input :references %>
+      <hr/>
+      <%= f.input :enquiry %>
+      <hr/>
+      <%= f.submit "Submit", class: "btn-green-star" %>
+    <% end %>
+  </div>
 <% end %>
+<br>
+<br>
