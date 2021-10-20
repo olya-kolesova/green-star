@@ -1,13 +1,16 @@
 <div class="container-trades">
   <div class="col-trades">
-    <h2>We supply:</h2>
+    <h2>Some operatives</h2>
+    <p>we supply</p>
     <% @trades.each do |trade| %>
       <div class="name-trades">
         <h3><%= trade.name %></h3>
-        <% if policy(Project).destroy? %>
+        <% if current_user.present? %>
+          <% if policy(Project).destroy? %>
             <%= link_to trade_path(trade), method: :delete do%>
               <i class="far fa-trash-alt"></i>
             <% end %>
+          <% end %>
         <% end %>
       </div>
     <% end %>
@@ -36,17 +39,18 @@
 
 </div>
 
-
-<% if policy(Trade).create? %>
-  <div class="form-green-star">
-    <h3>Trade form</h3>
-    <hr/>
-    <%= simple_form_for [@trade] do |f| %>
-      <%= f.input :name %>
+<% if current_user.present? %>
+  <% if policy(Trade).create? %>
+    <div class="form-green-star">
+      <h3>Trade form</h3>
       <hr/>
-      <%= f.submit "Submit", class: "btn-green-star" %>
-    <% end %>
-  </div>
+      <%= simple_form_for [@trade] do |f| %>
+        <%= f.input :name %>
+        <hr/>
+        <%= f.submit "Submit", class: "btn-green-star" %>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
 <br>
 <br>
