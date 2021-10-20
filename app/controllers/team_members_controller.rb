@@ -2,7 +2,7 @@ class TeamMembersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @team_members = policy_scope(TeamMember).order(created_at: :desc)
+    @team_members = policy_scope(TeamMember).order(created_at: :asc)
     @team_member = TeamMember.new
   end
 
