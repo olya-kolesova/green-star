@@ -12,24 +12,27 @@
 
 
 </div>
-<% if policy(TeamMember).create? %>
-  <div class="form-green-star">
-    <h3>Team member form</h3>
-    <hr/>
-    <%= simple_form_for [@team_member] do |f| %>
-      <%= f.input :first_name %>
+
+<% if current_user.present? %>
+  <% if policy(TeamMember).create? %>
+    <div class="form-green-star">
+      <h3>Team member form</h3>
       <hr/>
-      <%= f.input :last_name %>
-      <hr/>
-      <%= f.input :position %>
-      <hr/>
-      <%= f.input :info %>
-      <hr/>
-      <%= f.input :photo, as: :file %>
-      <hr/>
-      <%= f.submit "Submit", class: "btn-green-star" %>
-    <% end %>
-  </div>
+      <%= simple_form_for [@team_member] do |f| %>
+        <%= f.input :first_name %>
+        <hr/>
+        <%= f.input :last_name %>
+        <hr/>
+        <%= f.input :position %>
+        <hr/>
+        <%= f.input :info %>
+        <hr/>
+        <%= f.input :photo, as: :file %>
+        <hr/>
+        <%= f.submit "Submit", class: "btn-green-star" %>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
 <br>
 <br>
