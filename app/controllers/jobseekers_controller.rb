@@ -20,10 +20,17 @@ class JobseekersController < ApplicationController
   def create
     @jobseeker = Jobseeker.new(jobseeker_params)
     @jobseeker.user = current_user
-    if @jobseeker.save
-      redirect_to new_jobseeker_path
-    else
-      render "jobseekers/new"
+    authorize @jobseeker
+
+    respond_to do |format|
+      if @jobseeker.save
+        JobseekerMailer.with(jobseeker: @jobseeker).register_jobseeker.deliver_later
+        format.html { redirect_to(@jobseeker, notice: "Jobseeker was sucessfully created.") }
+        format.json { render json: @jobseeker, status: :created, location: @jobseeker }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @jobseeker.errors, status: :unprocessable_entity }
+      end
     end
   end
 
