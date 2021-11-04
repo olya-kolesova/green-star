@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Dear Mr.Swallow</p>
+    <p>
+      <%= @jobseeker.first_name %> <%= @jobseeker.last_name %> has just registered his profile on https://www.greenstarrecruitment.co.uk/.
+    </p>
+
+    <p>Trade: <%= @jobseeker.trade %></p>
+    <p>Qualifications: <%= @jobseeker.qualifications %></p>
+
+    <p>Phone number: <%= @jobseeker.phone_number %></p>
+    <p>Email: <%= @jobseeker.email %></p>
+    <p>Address line 1: <%= @jobseeker.address_line1 %></p>
+    <p>Address line 2: <%= @jobseeker.address_line2 %></p>
+    <p>Address line 3: <%= @jobseeker.address_line3 %></p>
+    <p>Post code: <%= @jobseeker.post_code %></p>
+
+    <p>Additional information</p>
+
+    <p>References: <%= @jobseeker.references %></p>
+    <p>Enquiry: <%= @jobseeker.enquiry %></p>
+
+    <p>Best regards</p>
+    <p>Your notification service</p>
+  </body>
+</html>

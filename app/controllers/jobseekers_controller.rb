@@ -25,7 +25,7 @@ class JobseekersController < ApplicationController
     respond_to do |format|
       if @jobseeker.save
         JobseekerMailer.with(jobseeker: @jobseeker).register_jobseeker.deliver_later
-        format.html { redirect_to(@jobseeker, notice: "Jobseeker was sucessfully created.") }
+        format.html { redirect_to(new_jobseeker_path, notice: "Jobseeker was sucessfully created.") }
         format.json { render json: @jobseeker, status: :created, location: @jobseeker }
       else
         format.html { render action: 'new' }
