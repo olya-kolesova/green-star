@@ -5,7 +5,7 @@
   <body>
     <p>Dear Mr.Swallow</p>
     <p>
-      <%= @jobseeker.first_name %> <%= @jobseeker.last_name %> has just registered his profile on https://www.greenstarrecruitment.co.uk/.
+      <%= @jobseeker.first_name %> <%= @jobseeker.last_name %> has just registered the profile on https://www.greenstarrecruitment.co.uk/.
     </p>
 
     <p>Trade: <%= @jobseeker.trade %></p>
@@ -17,12 +17,14 @@
     <p>Address line 2: <%= @jobseeker.address_line2 %></p>
     <p>Address line 3: <%= @jobseeker.address_line3 %></p>
     <p>Post code: <%= @jobseeker.post_code %></p>
-
+    <br>
+    <br>
     <p>Additional information</p>
 
     <p>References: <%= @jobseeker.references %></p>
     <p>Enquiry: <%= @jobseeker.enquiry %></p>
-
+    <br>
+    <br>
     <p>Best regards</p>
     <p>Your notification service</p>
   </body>
